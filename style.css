@@ -1,0 +1,414 @@
+html, body {
+	min-height: 100%;
+}
+body {
+	background-color: rgb(255, 255, 255);
+	color: rgb(43, 46, 52);
+	font: 300 1em/1 'Lato', sans-serif;
+	
+	-moz-font-feature-settings: 'kern';
+	-webkit-font-feature-settings: 'kern';
+	font-feature-settings: 'kern';
+	text-rendering: geometricPrecision;
+}
+noscript {
+	background-color: #000;
+	background-color: rgba(0,0,0,0.875);
+	box-sizing: border-box;
+	color: #fff;
+	display: block;
+	height: 100%;
+	left: 0;
+	padding: 2em 0;
+	position: fixed;
+	text-align: center;
+	top: 0;
+	width: 100%;
+	z-index: 10;
+}
+
+.sr { /* Screen reader only */
+	border: 0;
+	clip: rect(0,0,0,0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+}
+p {
+	margin: 0;
+}
+
+a, a:link, a:visited {
+	color: inherit;
+	font-weight: 700;
+	text-decoration: underline;
+}
+a:hover {
+	/* color: inherit; */
+}
+
+header {
+	background-color: rgb(183, 199, 207);
+	box-sizing: border-box;
+	color: rgb(43, 46, 52);
+	display: table;
+	margin-bottom: 1em;
+	padding: 1em;
+	width: 100%;
+}
+header h1,
+header aside {
+	display: table-cell;
+	vertical-align: top;
+}
+header h1 {
+	font-size: 2em;
+	margin: 0;
+}
+header aside {
+	font-style: italic;
+	padding-right: 3.5em;
+	text-align: right;
+}
+header aside .school-logo {
+	margin-top: -2.5em;
+	margin-right: -3.5em;
+	float: right;
+	overflow: visible;
+	height: 2em;
+}
+header aside .school-logo img {
+	height: 3em;
+	width: 3em;
+}
+
+@media only screen and (max-width: 480px) {
+	header h1,
+	header aside {
+		display: block;
+	}
+}
+
+#map {
+	box-sizing: border-box;
+	min-height: 250px;
+	position: relative;
+}
+
+#map .map-panel {
+	left: 1em;
+	position: absolute;
+	top: 1em;
+}
+#map .map-panel > div {	
+	background-color: rgba(255, 255, 255, 0.75);
+	border-radius: 0.25rem;
+	border: 0.0625rem solid rgb(238, 238, 238);
+	clear: left;
+	float: left;
+	padding: 1rem;
+	transition: background-color 0.375s ease-in, border-color 0.375s ease-in;
+	-moz-transition: background-color 0.375s ease-in, border-color 0.375s ease-in;
+	-webkit-transition: background-color 0.375s ease-in, border-color 0.375s ease-in;
+}
+#map .map-panel > div:hover {
+	background-color: rgb(255, 255, 255);
+	border-color: rgb(204, 204, 204);
+}
+#map .map-panel > div:not(:last-of-type) {
+	margin-bottom: 1rem;
+}
+#map .map-panel h4 {
+	margin: 0;
+	float: left;
+}
+#map .map-panel h4:after {
+	content: ':';
+}
+#map .map-panel ul {
+	list-style-type: none;
+	margin: 0;
+}
+#map .map-panel li:not(:last-of-type) {
+	margin-bottom: 0.25em;
+}
+#map .map-panel input[type='checkbox'],
+#map .map-panel input[type='radio'] {
+	margin-right: 0.25em;
+}
+#map .map-panel input[type='checkbox']:selected ~ label,
+#map .map-panel input[type='radio']:selected ~ label {
+	font-weight: 700;
+}
+#map .map-panel .display-options ul {
+	padding-left: 4em;
+}
+#map .map-panel .legend {
+	font-size: 0.875em;
+	line-height: 1.25;
+}
+#map .map-panel .legend ul {
+	padding-left: 0;
+}
+#map .map-panel .legend li.value-0 {
+	font-style: italic;
+	margin-top: 1em;
+}
+#map .map-panel .legend li:before {
+	content: '';
+	float: left;
+	margin: 0.0625em 0.3125em 0.0625em 0.0625em;
+	height: 1em;
+	width: 1.5em;
+}
+#map .map-panel .legend li.value-0:before {
+	background-color: rgb(255, 255, 255);
+	border: 0.0625rem solid rgb(238, 238, 238);
+	margin: 0 0.25em 0 0;
+}
+#map .map-panel .legend li.value-1:before {
+	background-color: rgb(211, 229, 232);
+}
+#map .map-panel .legend li.value-2:before {
+	background-color: rgb(151, 180, 199);
+}
+#map .map-panel .legend li.value-3:before {
+	background-color: rgb(98, 138, 168);
+}
+#map .map-panel .legend li.value-4:before {
+	background-color: rgb(46, 100, 140);
+}
+
+@media only screen and (min-width: 960px) {
+	#map {
+		overflow-x: visible;
+		padding: 2em 4em;
+	}
+	#map svg {
+		width: 100%;
+	}
+}
+@media only screen and (max-width: 960px) {
+	#map {
+		overflow-x: auto;
+		padding: 2em 0;
+	}
+	#map svg {
+		width: 960px;
+	}
+}
+
+#info {
+	margin: 1rem auto 0;
+	max-width: 800px;
+}
+#info .columns,
+#info .details {
+	list-style-type: none;
+	margin: 0;
+	padding-left: 0;
+}
+#info .columns > li {
+	box-sizing: border-box;
+	display: inline-block;
+	padding: 1em;
+	width: 50%;
+	vertical-align: top;
+}
+
+#info .county-name {
+	color: #999;
+	font-weight: 300;
+	font-size: 2.5em;
+	hyphens: auto;
+	-moz-hyphens: auto;
+	-webkit-hyphens: auto;
+	letter-spacing: 0.25em;
+	margin: 0 0.25em;
+	text-align: center;
+	text-transform: uppercase;
+}
+#info .county-name.county-selected {
+	color: inherit;
+}
+#info .details {
+	border-collapse: separate;
+	border-spacing: 0 0.75em;
+	box-sizing: border-box;
+	display: table;
+	width: 100%;
+}
+#info .details > li {
+	display: table-row;
+}
+#info .details .data-header {
+	box-sizing: border-box;
+	display: table-cell;
+	font-size: 1em;
+	padding-right: 0.5em;
+	text-align: right;
+}
+#info .details h4,
+#info .details h5 {
+	font-weight: 300;
+}
+#info .details .data-header:after {
+	content: ':';
+}
+#info .details .data-label {
+	box-sizing: border-box;
+	display: table-cell;
+	font-size: inherit;
+	line-height: inherit;
+	vertical-align: middle;
+	width: 30%;
+}
+#info .details .data-label var {
+	font-style: normal;
+	font-weight: 400;
+}
+#info .details .population-change:after,
+#info .details .population-change-relative:after,
+#info .details .developed-land-change:after,
+#info .details .developed-land-relative:after {
+	content: '%';
+	font-style: italic;
+	font-weight: 300;
+}
+#info .details .developed-land-1992:after,
+#info .details .developed-land-2006:after {
+	content: ' km\00b2';
+	font-style: italic;
+	font-weight: 300;
+}
+
+@media only screen and (max-width: 480px) {
+	#info .columns > li {
+		display: block;
+		width: auto;
+	}
+}
+
+@media only screen and (min-width: 960px) {
+	#info {
+		max-width: 75vw;
+	}
+	#info .county-name {
+		font-size: 4vw;
+		margin-bottom: 0.25vw;
+	}
+	#info .details .data-header,
+	#info .details .data-label {
+		font-size: 2vw;
+	}
+}
+
+#notes {
+	border-top: 0.0625em solid #F0F0F0;
+	line-height: 1.25;
+	margin: 2rem auto 0;
+	padding: 2rem 1rem;
+	max-width: 800px;
+}
+#notes h3 {
+	color: #999;
+	font-size: 0.875em;
+	letter-spacing: 0.125em;
+	margin: 0;
+	text-transform: uppercase;
+}
+#notes ul {
+	color: #333;
+	list-style-type: square;
+	margin: 0.5em 0 0 0;
+	padding-left: 1.25em;
+}
+#notes ul > li:not(:last-of-type) {
+	margin-bottom: 0.25em;
+}
+#notes p {
+	color: #333;
+	margin: 0.5em 0;
+}
+#notes p:not(:last-of-type),
+#notes ul:not(:last-of-type) {
+	margin-bottom: 1rem;
+}
+
+footer {
+	background-color: #CCC;
+	color: #999;
+	box-sizing: border-box;
+	font-size: 0.75em;
+	padding: 1rem;
+	width: 100%;
+}
+footer p {
+	line-height: 1.25;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 800px;
+	text-align: justify;
+}
+footer p:not(:last-of-type) {
+	margin-bottom: 0.5em
+}
+
+#county_outlines > g.scale > path,
+#county_outlines > path.scale {
+	fill-opacity: 1 !important;
+	transition: fill 0.75s ease-out;
+}
+
+#county_outlines > g.scale.value-0 > path,
+#county_outlines > path.scale.value-0 {
+	fill: rgb(255, 255, 255);
+}
+
+#county_outlines > g.scale.value-1 > path,
+#county_outlines > path.scale.value-1 {
+	fill: rgb(211, 229, 232);
+}
+
+#county_outlines > g.scale.value-2 > path,
+#county_outlines > path.scale.value-2 {
+	fill: rgb(151, 180, 199);
+}
+
+#county_outlines > g.scale.value-3 > path,
+#county_outlines > path.scale.value-3 {
+	fill: rgb(98, 138, 168);
+}
+
+#county_outlines > g.scale.value-4 > path,
+#county_outlines > path.scale.value-4 {
+	fill: rgb(46, 100, 140);
+}
+
+#county_outlines > g:hover > path,
+#county_outlines > path:hover,
+#county_outlines > path.county-selected,
+#county_outlines > g.county-selected > path {
+	cursor: pointer;
+	stroke: rgb(255, 82, 82) !important;
+	stroke-opacity: 1 !important;
+}
+
+::selection {
+	background-color: rgb(255, 255, 170);
+	color: rgb(0, 0, 0);
+	text-shadow: none;
+}
+::-moz-selection {
+	background-color: rgb(255, 255, 170);
+	color: rgb(0, 0, 0);
+	text-shadow: none;
+}
+::-webkit-selection {
+	background-color: rgb(255, 255, 170);
+	color: rgb(0, 0, 0);
+	text-shadow: none;
+}
